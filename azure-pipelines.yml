@@ -26,4 +26,4 @@ stages:
         command: custom
         workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
         verbose: false
-        customCommand: 'run build'
+        customCommand: 'run gulp'
