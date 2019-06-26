@@ -16,8 +16,14 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Npm@1
-      displayName: '[static] npm install'
+      displayName: 'npm install'
       inputs:
         workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
         verbose: false
-        
+    - task: Npm@1
+      displayName: 'npm build'
+      inputs:
+        command: custom
+        workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
+        verbose: false
+        customCommand: 'run build'
