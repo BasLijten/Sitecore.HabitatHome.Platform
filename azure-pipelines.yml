@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+stages: 
+- stage: Build
+  displayName: Build Sitecore Platform sources
+  jobs:
+  - job: BuildHabitatHomeBasic
+    displayName: Build Habit Home Basic  
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: Npm@1
+      displayName: '[static] npm install'
+      inputs:
+        workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
+        verbose: false
+        
