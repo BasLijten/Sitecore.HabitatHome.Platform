@@ -14,13 +14,13 @@ steps:
 - task: Npm@1
   displayName: 'npm install'
   inputs: 
-    workingDir: fitness/app
+    workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic
     verbose: false
 - task: Npm@1
   displayName: 'npm run jss build'
   inputs:
     command: custom
-    workingDir: fitness/app
+    workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic
     verbose: false
     customCommand: 'run jss build'
 
