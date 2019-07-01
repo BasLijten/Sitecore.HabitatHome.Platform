@@ -16,13 +16,13 @@ steps:
   inputs: 
     workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic
     verbose: false
-- task: Npm@1
-  displayName: 'npm run jss build'
-  inputs:
-    command: custom
-    workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic
-    verbose: false
-    customCommand: 'run jss build'
+# - task: Npm@1
+#   displayName: 'npm run jss build'
+#   inputs:
+#     command: custom
+#     workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic
+#     verbose: false
+#     customCommand: 'run jss build'
 
 
 # - task: PublishPipelineArtifact@0
