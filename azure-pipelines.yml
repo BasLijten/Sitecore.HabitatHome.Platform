@@ -1,29 +1,81 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
 - master
 
-stages: 
+stages:
 - stage: Build
-  displayName: Build Sitecore Platform sources
   jobs:
-  - job: BuildHabitatHomeBasic
-    displayName: Build Habit Home Basic  
-    pool:
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndUbuntu1
       vmImage: 'ubuntu-latest'
-    steps:
-    - task: Npm@1
-      displayName: 'npm install'
-      inputs:
-        workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
-        verbose: false
-    - task: Npm@1
-      displayName: 'npm build'
-      inputs:
-        command: custom
-        workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
-        verbose: false
-        customCommand: 'run gulp'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndUbuntu2
+      vmImage: 'ubuntu-latest'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndUbuntu3
+      vmImage: 'ubuntu-latest'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndUbuntu4
+      vmImage: 'ubuntu-latest'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndUbuntu5
+      vmImage: 'ubuntu-latest'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndWindows1
+      vmImage: 'vs2017-win2016'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndWindows2
+      vmImage: 'vs2017-win2016'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndWindows3
+      vmImage: 'vs2017-win2016'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndWindows4
+      vmImage: 'vs2017-win2016'
+  - template: templates/static-build-jobs-template.yml
+    parameters:
+      name: BuildFrontEndWindows5
+      vmImage: 'vs2017-win2016'
+
+# # Starter pipeline
+# # Start with a minimal pipeline that you can customize to build and deploy your code.
+# # Add steps that build, run tests, deploy, and more:
+# # https://aka.ms/yaml
+
+# trigger:
+# - master
+
+# stages: 
+# - stage: Build
+#   displayName: Build Sitecore Platform sources
+#   jobs:
+#   - job: BuildHabitatHomeBasic
+#     displayName: Build Habit Home Basic  
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     steps:
+#     - task: Npm@1
+#       displayName: 'npm install'
+#       inputs:
+#         workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
+#         verbose: false
+#     - task: Npm@1
+#       displayName: 'npm build'
+#       inputs:
+#         command: custom
+#         workingDir: FrontEnd/-/media/Themes/Habitat SXA Sites/Habitat Home Basic/
+#         verbose: false
+#         customCommand: 'run gulp'
